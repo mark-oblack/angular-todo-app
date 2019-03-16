@@ -1,7 +1,7 @@
 /*=======================================
 Fonts
 =======================================*/
-@import url("https://use.typekit.net/moc0jjd.css");
+@import url("https://use.typekit.net/pkl3kvq.css");
 
 
 
@@ -9,12 +9,40 @@ Fonts
 General Styles
 ===================================*/
 body, html {
-    font-family: proxima-nova, sans-serif;
+    background-color: #282a36;
+    font-family: proxima-soft, sans-serif;
     font-weight: 400;
     font-style: normal;
     margin-right: auto;
     margin-left: auto;
     max-width: 500px !important;
+}
+
+h1 {
+    color: #bd93f9;
+    font-weight: 700;
+    text-align: center;
+}
+
+h2 {
+    color: #f2f2f2;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+
+/*===================================
+Custom Bootstrap Styles
+===================================*/
+.btn-primary {
+    background-color: #50fa7b;
+    color: #282a36;
+}
+
+.btn-warning {
+    background-color: #ffb86c;
 }
 
 
@@ -27,6 +55,10 @@ Shopping List Styles
     list-style: none;
 }
 
+.task-list > li {
+    color: #f2f2f2;
+}
+
 .done-true {
     color: #b2bec3;
     text-decoration: line-through;
@@ -34,5 +66,17 @@ Shopping List Styles
 }
 
 .remove-task:hover {
+    color: #ff5555;
     cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.new-task {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.clear-list {
+    display: block;
+    margin: 0 auto;
 }
