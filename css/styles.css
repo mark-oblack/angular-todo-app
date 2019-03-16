@@ -23,7 +23,7 @@ body, html {
 Shopping List Styles
 ===================================*/
 
-.shopping-list {
+.task-list {
     list-style: none;
 }
 
@@ -31,6 +31,6 @@ Shopping List Styles
     text-decoration: line-through;
 }
 
-.item-quantity {
+/* .item-quantity {
     color: #b2bec3;
-}
+} */
