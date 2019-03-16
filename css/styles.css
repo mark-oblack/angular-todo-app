@@ -28,9 +28,11 @@ Shopping List Styles
 }
 
 .done-true {
+    color: #b2bec3;
     text-decoration: line-through;
+    transition: 0.2s ease;
 }
 
-/* .item-quantity {
-    color: #b2bec3;
-} */
+.remove-task:hover {
+    cursor: pointer;
+}

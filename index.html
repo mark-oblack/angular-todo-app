@@ -22,8 +22,9 @@
             </div>
         <ul class="task-list">
             <li ng-repeat="task in taskList.tasks">
-                <input type="checkbox" ng-model="taskList.done" aria-label="Checkbox for task">
-                <span class="done-{{taskList.done}}">{{ task.text }}</span>
+                <span class="done-{{task.done}}">{{task.text}}</span>
+                <input type="checkbox" ng-model="task.done" aria-label="Checkbox for task">
+                <span class="remove-task" ng-click="taskList.removeTask()"><i class="far fa-trash-alt"></i></span>
             </li>
         </ul>
         <button class="btn btn-warning" type="button" ng-click="taskList.clear()">Clear List</button>
@@ -36,11 +37,20 @@
         //Define the 'taskCtrl' controller on the 'taskMasterApp' module.
         taskMasterApp.controller('taskCtrl', function($scope) {
             var taskList = this;
-            taskList.tasks = [];
+            taskList.tasks = [
+                {done:true, text:'Wash the car'},
+                {done:false, text:'Read book'},
+                {done:false, text:'Milk cow'}
+            ];
 
             taskList.addTask = function() {
                 taskList.tasks.push({done:false, text:taskList.taskText}); //adds task to list, checkbox to unchecked
                 taskList.taskText = ''; //resets task input to empty
+            }
+
+            taskList.removeTask = function(item) {
+                var index = taskList.tasks.indexOf(item);
+                taskList.tasks.splice(index, 1);
             }
 
             taskList.clear = function() {
