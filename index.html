@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
 </head>
-<body ng-app="taskMasterApp" ng-class="{'nightMode': isActive}" ng-controller="taskCtrl as taskList">
-    <div class="wrapper dflex flex-column">
-        <h1 class="py-2">taskmaster</h1>
+<body ng-app="taskMasterApp" ng-class="{'nightMode': isActive}" ng-controller="taskCtrl">
+    <div class="wrapper d-flex flex-column justify-content-center">
+        <h1>taskmaster</h1>
         <h2>Master any task that comes your way.</h2>
+        <h3 class="my-3">{{totalTasks()}} Tasks to Complete:</h3>
         <form>
             <ul class="task-list">
-                <li ng-repeat="task in tasks" class="d-flex justify-content-between my-3">
+                <li ng-repeat="task in tasks" class="d-flex justify-content-between mb-3">
                     <span class="done-{{task.done}}">{{task.text}}</span>
                     <div class="action-items">
                         <input type="checkbox" ng-model="task.done" aria-label="Checkbox for task">
@@ -24,14 +25,18 @@
                     </div>
                 </li>
             </ul>
-            <div class="input-group new-task my-3">
+            <div class="input-group new-task my-4">
                 <input type="text" class="form-control" ng-model="taskText" placeholder="Enter task name">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button" ng-click="addTask()">Add</button>
                 </div>
             </div>
             <button class="btn btn-warning clear-list" type="button" ng-click="clear()">Clear List</button>
-            <button class="btn btn-secondary dm-toggle my-3" type="button" ng-click="activeButton()"><i class="far fa-moon"></i> Night Mode</button>
+            <div class="custom-control custom-switch dm-toggle my-4">
+                <input type="checkbox" class="custom-control-input" id="nightMode" ng-click="activeButton()">
+                <label class="custom-control-label" for="nightMode"><i class="far fa-moon"></i> Night Mode</label>
+            </div>
+            <!-- <button class="btn btn-secondary dm-toggle my-3" type="button" ng-click="activeButton()"><i class="far fa-moon"></i> Night Mode</button> -->
         </form>
     </div> <!--end of wrapper-->
 
@@ -46,6 +51,14 @@
                 {done:false, text:'Work on AngularJS project'},
                 {done:false, text:'Cut the grass'}
             ];
+
+            $scope.totalTasks = function() {
+                var count = 0; //sets total tasks to complete to 0
+                angular.forEach($scope.tasks, function(task) { //iterates over each task in the tasks array
+                    count += task.done ? 0 : 1; //if a task is done, increase count by 0; else increase count by 1
+                });
+                return count;
+            };
 
             $scope.addTask = function() {
                 $scope.tasks.push({done:false, text:$scope.taskText}); //adds task to list, checkbox to unchecked

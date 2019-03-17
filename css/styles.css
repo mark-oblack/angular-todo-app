@@ -8,8 +8,7 @@ Fonts
 /*===================================
 General Styles
 ===================================*/
-body, html {
-    /* background-color: #282a36; */
+body {
     background-color: #f2f2f2;
     color: #282a36;
     font-family: proxima-soft, sans-serif;
@@ -19,27 +18,33 @@ body, html {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    transition: 0.2s ease; //for reverting back from night-mode
+    transition: 0.3s ease; //for reverting back from night-mode
 }
 
 .wrapper {
     margin: 0 auto;
+    min-height: 100vh;
     max-width: 500px;
 }
 
 h1 {
     color: #bd93f9;
+    font-size: 2.75rem;
     font-weight: 700;
     text-align: center;
 }
 
 h2 {
-    /* color: #f2f2f2; */
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
 }
 
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    padding-left: 15px;
+}
 
 
 /*===================================
@@ -78,6 +83,7 @@ Task List Styles
 
 .task-list {
     list-style: none;
+    padding-left: 25px;
 }
 
 .done-true {
@@ -108,20 +114,22 @@ Task List Styles
 Night Mode Styles
 ===================================*/
 .dm-toggle {
-    background-color: #282a36;
-    display: block;
-    margin: 0 auto;
+    text-align: center;
 }
 
-.dm-toggle:hover {
-    background-color: #636e72;
-    transition: 0.2s ease;
+.dm-toggle > .custom-control-label:hover {
+    cursor: pointer;
 }
 
 .nightMode {
     background-color: #282a36;
     color: #f2f2f2 !important;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: #bd93f9;
+    border-color: #6272a4;
 }
 
 
