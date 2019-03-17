@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
 </head>
-<body ng-app="taskMasterApp">
-    <h1 class="my-2">taskmaster</h1>
-    <h2>Master any task that comes your way.</h2>
-    <div ng-controller="taskCtrl as taskList">
+<body ng-app="taskMasterApp" ng-class="{'nightMode': isActive}" ng-controller="taskCtrl as taskList">
+    <div class="wrapper dflex flex-column">
+        <h1 class="py-2">taskmaster</h1>
+        <h2>Master any task that comes your way.</h2>
         <form>
             <ul class="task-list">
                 <li ng-repeat="task in tasks" class="d-flex justify-content-between my-3">
@@ -31,8 +31,9 @@
                 </div>
             </div>
             <button class="btn btn-warning clear-list" type="button" ng-click="clear()">Clear List</button>
+            <button class="btn btn-secondary dm-toggle my-3" type="button" ng-click="activeButton()"><i class="far fa-moon"></i> Night Mode</button>
         </form>
-    </div>
+    </div> <!--end of wrapper-->
 
     <script>
         //Define the 'grocartApp' module.
@@ -59,6 +60,11 @@
             $scope.clear = function() {
                 $scope.tasks = []; //removes all tasks from the list; sets array to empty
             };
+
+            $scope.isActive = false;
+            $scope.activeButton = function() {
+                $scope.isActive = !$scope.isActive;
+            };  
         });
     </script>
 </body>
