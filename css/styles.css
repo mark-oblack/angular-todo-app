@@ -56,21 +56,21 @@ Custom Bootstrap Styles
 }
 
 .btn-primary {
-    background-color: #26de81;
+    background-color: #2ecc71;
     /* color: #282a36; */
 }
 
 .btn-primary:hover {
-    background-color: #20bf6b;
+    background-color: #27ae60;
     transition: 0.2s ease;
 }
 
 .btn-warning {
-    background-color: #fd9644;
+    background-color: #ff4d4d;
 }
 
 .btn-warning:hover {
-    background-color: #fa8231;
+    background-color: #ec2929;
     color: #f2f2f2;
     transition: 0.2s ease;
 }
@@ -82,7 +82,9 @@ Task List Styles
 ===================================*/
 
 .task-list {
+    height: 500px;
     list-style: none;
+    overflow: auto;
     padding-left: 25px;
 }
 
@@ -93,14 +95,14 @@ Task List Styles
 }
 
 .remove-task:hover {
-    color: #ff5555;
+    color: #ff4d4d;
     cursor: pointer;
     transition: 0.2s ease;
 }
 
 .new-task {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
 }
 
 .clear-list {
@@ -125,6 +127,12 @@ Night Mode Styles
     background-color: #282a36;
     color: #f2f2f2 !important;
     transition: 0.3s ease;
+}
+
+.custom-switch .custom-control-label::after {
+    background-color: #282a36;
+    border-color: #6272a4;
+
 }
 
 .custom-control-input:checked~.custom-control-label::before {
