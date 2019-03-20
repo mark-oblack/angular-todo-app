@@ -33,7 +33,7 @@
                 <li ng-repeat="task in tasks" class="d-flex justify-content-between mb-3">
                     <span class="done-{{task.done}}">{{task.text}}</span>
                     <div class="action-items">
-                        <input type="checkbox" aria-label="Checkbox for task">
+                        <input type="checkbox" ng-model="task.done" aria-label="Checkbox for task">
                         <span class="remove-task px-3" ng-click="removeTask(task)"><i class="far fa-trash-alt"></i></span>
                     </div>
                 </li>
