@@ -63,6 +63,12 @@ h3 {
     color: #bd93f9 !important;
 }
 
+@media all and (min-width: 601px) {
+    #footer-nav {
+        display: none !important;
+    }
+}
+
 
 /*===================================
 Custom Bootstrap Styles
