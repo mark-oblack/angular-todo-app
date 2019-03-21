@@ -54,6 +54,15 @@ h3 {
     padding-left: 15px;
 }
 
+#footer-nav {
+    display: block;
+    margin: 0 auto;
+}
+
+.active {
+    color: #bd93f9 !important;
+}
+
 
 /*===================================
 Custom Bootstrap Styles
@@ -99,7 +108,7 @@ Task List Styles
 ===================================*/
 
 .task-list {
-    height: 500px;
+    height: 300px;
     list-style: none;
     overflow: auto;
     padding-left: 25px;

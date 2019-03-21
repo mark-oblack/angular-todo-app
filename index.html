@@ -14,8 +14,10 @@
 <body ng-app="taskMasterApp" ng-class="{'nightMode': isActive}" ng-controller="taskCtrl">
     <div class="wrapper d-flex flex-column justify-content-start">
         <!-- <h1 class="mt-3">taskmaster</h1> -->
-        <img src="assets/taskmaster-logo.svg" alt="taskMaster logo" class="my-3 tm-logo">
-        <h2>Master any task that comes your way.</h2>
+        <header>
+            <img src="assets/taskmaster-logo.svg" alt="taskMaster logo" class="my-3 tm-logo">
+            <h2>Master any task that comes your way.</h2>
+        </header>
         <div class="custom-control custom-switch dm-toggle my-2">
             <input type="checkbox" class="custom-control-input" id="nightMode" ng-click="activeButton()">
             <label class="custom-control-label" for="nightMode"><i class="far fa-moon"></i> Night Mode</label>
@@ -41,8 +43,27 @@
                 </li>
             </ul>
         </form>
+        <ul id="footer-nav" class="navbar bg-dark d-flex justify-content-around fixed-bottom mb-0">
+            <li class="nav-item d-flex flex-column text-center">
+                <a href="#" class="text-light nav-link active">
+                    <i class="far fa-check-circle"></i>
+                    <p class="mb-0">My Tasks</p>
+                </a>
+            </li>
+            <li class="nav-item d-flex flex-column text-center">
+                <a href="#" class="text-light nav-link">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p class="mb-0">Projects</p>
+                </a>
+            </li>
+            <li class="nav-item d-flex flex-column text-center">
+                <a href="#" class="text-light nav-link">
+                    <i class="fas fa-search"></i>
+                    <p class="mb-0">Search</p>
+                </a>
+            </li>
+        </ul>
     </div> <!--end of wrapper-->
-
     <script>
         //Define the 'grocartApp' module.
         var taskMasterApp = angular.module('taskMasterApp', []);
